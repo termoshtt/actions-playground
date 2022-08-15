@@ -9,4 +9,4 @@ jobs:
     runs-on: windows-2022
     steps:
       - name: Install MKL using NuGet
-        run: nuget install intelmkl.devel.x64
+        run: nuget install intelmkl.devel.win-x64
