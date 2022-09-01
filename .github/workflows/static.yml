@@ -30,13 +30,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - uses: actions-rs/cargo@v1
+        with:
+          command: doc
+          args: --manifest-path=pages-test/Cargo.toml --no-deps
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: '.'
+          path: 'pages-test/target/doc'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
